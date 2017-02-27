@@ -3,6 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+exports.runGenerator = exports.removeUse = exports.addUse = exports.getRegistrationName = exports.removeEnv = exports.addEnv = exports.removeImport = exports.addImport = undefined;
 
 var _addImport = require('./addImport');
 
@@ -38,13 +39,11 @@ var _runGenerator2 = _interopRequireDefault(_runGenerator);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-exports.default = {
-  addEnv: _addEnv2.default,
-  removeEnv: _removeEnv2.default,
-  addImport: _addImport2.default,
-  removeImport: _removeImport2.default,
-  addUse: _addUse2.default,
-  removeUse: _removeUse2.default,
-  getRegistrationName: _getRegistrationName2.default,
-  runGenerator: _runGenerator2.default
-};
+exports.addImport = _addImport2.default;
+exports.removeImport = _removeImport2.default;
+exports.addEnv = _addEnv2.default;
+exports.removeEnv = _removeEnv2.default;
+exports.getRegistrationName = _getRegistrationName2.default;
+exports.addUse = _addUse2.default;
+exports.removeUse = _removeUse2.default;
+exports.runGenerator = _runGenerator2.default;

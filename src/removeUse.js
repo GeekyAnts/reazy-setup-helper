@@ -21,12 +21,10 @@ export default (packageName, file) => {
       return false;
     });
 
-    console.log(lineNumber);
-
     lines.splice(lineNumber, 1);
 
     content = lines.join('\n');
-    
+
     fs.writeFileSync(file, content, {encoding: 'utf8'});
   } else {
     console.log(chalk.red(`app.js at path ${file} not found`));

@@ -7,13 +7,11 @@ import addUse from './addUse';
 import removeUse from './removeUse';
 import runGenerator from './runGenerator';
 
-export default {
-  addEnv: addEnv,
-  removeEnv: removeEnv,
-  addImport: addImport,
-  removeImport: removeImport,
-  addUse: addUse,
-  removeUse: removeUse,
-  getRegistrationName: getRegistrationName,
-  runGenerator: runGenerator,
-}
+export {addImport}
+export {removeImport}
+export {addEnv}
+export {removeEnv}
+export {getRegistrationName}
+export {addUse}
+export {removeUse}
+export {runGenerator}

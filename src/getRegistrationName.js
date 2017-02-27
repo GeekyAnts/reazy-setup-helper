@@ -20,7 +20,18 @@ export default (packageName, file) => {
     });
 
     const importStatement = lines[importLineNumber];
-    const imports = importStatement.split('import')[1].split('from')[0].split(',');
+
+    if(!importStatement) {
+      return null;
+    }
+
+    let imports = importStatement.split('import')[1];
+    if(imports) {
+      imports = imports.split('from')[0];
+    }
+    if(imports) {
+      imports = imports.split(',');
+    }
 
     let importVarName;
     imports.forEach((word, index) => {
@@ -45,8 +56,13 @@ export default (packageName, file) => {
 
     const appUseStatement = lines[appUseLineNumber];
 
-    let regName = appUseStatement.split(',')[1].split(')')[0];
-    regName = regName.trim().replace(/[\'\"]/g, '');
+    let regName = appUseStatement.split(',')[1]
+    if(regName) {
+      regName = regName.split(')')[0];
+    }
+    if(regName) {
+      regName = regName.trim().replace(/[\'\"]/g, '');
+    }
 
     return regName;
   } else {

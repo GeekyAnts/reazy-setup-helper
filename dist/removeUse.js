@@ -37,8 +37,6 @@ exports.default = function (packageName, file) {
       return false;
     });
 
-    console.log(lineNumber);
-
     lines.splice(lineNumber, 1);
 
     content = lines.join('\n');

@@ -33,7 +33,18 @@ exports.default = function (packageName, file) {
     });
 
     var importStatement = lines[importLineNumber];
-    var imports = importStatement.split('import')[1].split('from')[0].split(',');
+
+    if (!importStatement) {
+      return null;
+    }
+
+    var imports = importStatement.split('import')[1];
+    if (imports) {
+      imports = imports.split('from')[0];
+    }
+    if (imports) {
+      imports = imports.split(',');
+    }
 
     var importVarName = void 0;
     imports.forEach(function (word, index) {
@@ -58,8 +69,13 @@ exports.default = function (packageName, file) {
 
     var appUseStatement = lines[appUseLineNumber];
 
-    var regName = appUseStatement.split(',')[1].split(')')[0];
-    regName = regName.trim().replace(/[\'\"]/g, '');
+    var regName = appUseStatement.split(',')[1];
+    if (regName) {
+      regName = regName.split(')')[0];
+    }
+    if (regName) {
+      regName = regName.trim().replace(/[\'\"]/g, '');
+    }
 
     return regName;
   } else {
