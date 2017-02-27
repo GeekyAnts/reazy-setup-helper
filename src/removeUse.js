@@ -1,5 +1,6 @@
 import path from 'path';
 import fs from 'fs-extra';
+import chalk from 'chalk';
 import getRegistrationName from './getRegistrationName';
 
 export default (packageName, file) => {
@@ -7,6 +8,16 @@ export default (packageName, file) => {
   if (fs.existsSync(file)) {
 
     const registrationName = getRegistrationName(packageName, file);
+    if(!registrationName) {
+      console.log(chalk.yellow(`import statement was not found for ${chalk.underline(packageName)}`));
+      console.log(
+        chalk.yellow(`The remove script might have used `) +
+        chalk.cyan('removeImport() ') +
+        chalk.yellow('before ') +
+        chalk.cyan('removeUse()')
+      );
+      return null;
+    }
 
     let content = fs.readFileSync(file, {encoding: 'utf8'});
     const lines = content.split('\n');
@@ -20,6 +31,12 @@ export default (packageName, file) => {
       }
       return false;
     });
+
+    if(lineNumber === undefined) {
+      console.log(chalk.yellow(`Could not find app.use for ${chalk.underline(packageName)}`));
+
+      return null;
+    }
 
     lines.splice(lineNumber, 1);
 

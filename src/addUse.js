@@ -15,7 +15,7 @@ export default (statement, position, afterPackage, file) => {
 
     let lineNumber;
 
-    if(afterPackage) {
+    if(afterPackage && getRegistrationName(afterPackage, file)) {
       const registrationName = getRegistrationName(afterPackage, file);
 
       const appUseRegExp = new RegExp('app\.use.*' + registrationName, 'g');

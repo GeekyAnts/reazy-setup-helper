@@ -31,7 +31,7 @@ exports.default = function (statement, position, afterPackage, file) {
 
     var lineNumber = void 0;
 
-    if (afterPackage) {
+    if (afterPackage && (0, _getRegistrationName2.default)(afterPackage, file)) {
       var registrationName = (0, _getRegistrationName2.default)(afterPackage, file);
 
       var appUseRegExp = new RegExp('app\.use.*' + registrationName, 'g');

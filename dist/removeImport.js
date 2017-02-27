@@ -30,11 +30,15 @@ exports.default = function (packageName, file) {
       return false;
     });
 
-    if (lineNumber !== undefined) {
-      lines.splice(lineNumber, 1);
-      content = lines.join('\n');
-      _fsExtra2.default.writeFileSync(file, content, { encoding: 'utf8' });
+    if (lineNumber === undefined) {
+      console.log(chalk.yellow('Could not find import for ' + chalk.underline(packageName)));
+
+      return null;
     }
+
+    lines.splice(lineNumber, 1);
+    content = lines.join('\n');
+    _fsExtra2.default.writeFileSync(file, content, { encoding: 'utf8' });
   } else {
     console.log(chalk.red('app.js at path ' + file + ' not found'));
   }
