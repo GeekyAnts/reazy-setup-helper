@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.runGenerator = exports.removeUse = exports.addUse = exports.getRegistrationName = exports.removeEnv = exports.addEnv = exports.removeImport = exports.addImport = undefined;
+exports.getYarnVersionIfAvailable = exports.runGenerator = exports.removeUse = exports.addUse = exports.getRegistrationName = exports.removeEnv = exports.addEnv = exports.removeImport = exports.addImport = undefined;
 
 var _addImport = require('./addImport');
 
@@ -37,6 +37,10 @@ var _runGenerator = require('./runGenerator');
 
 var _runGenerator2 = _interopRequireDefault(_runGenerator);
 
+var _getYarnVersion = require('./getYarnVersion');
+
+var _getYarnVersion2 = _interopRequireDefault(_getYarnVersion);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 exports.addImport = _addImport2.default;
@@ -47,3 +51,4 @@ exports.getRegistrationName = _getRegistrationName2.default;
 exports.addUse = _addUse2.default;
 exports.removeUse = _removeUse2.default;
 exports.runGenerator = _runGenerator2.default;
+exports.getYarnVersionIfAvailable = _getYarnVersion2.default;

@@ -6,6 +6,7 @@ import getRegistrationName from './getRegistrationName';
 import addUse from './addUse';
 import removeUse from './removeUse';
 import runGenerator from './runGenerator';
+import getYarnVersionIfAvailable from './getYarnVersion';
 
 export {addImport}
 export {removeImport}
@@ -15,3 +16,4 @@ export {getRegistrationName}
 export {addUse}
 export {removeUse}
 export {runGenerator}
+export {getYarnVersionIfAvailable}
